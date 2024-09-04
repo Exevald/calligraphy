@@ -1,2 +1,5 @@
 # calligraphy
-Handwriting generation application
+
+***Description:*** Handwriting generation application
+
+***Author:*** Konstantin Kalinin
