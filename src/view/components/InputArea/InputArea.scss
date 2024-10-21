@@ -1,0 +1,51 @@
+.inputArea__label-checkbox {
+
+}
+
+.inputArea__ {
+  &header {
+    position: relative;
+    margin: 0 0 -10px 23px;
+    background-color: white;
+    width: fit-content;
+    padding: 0 6px 0 6px;
+    color: var(--ash-default);
+
+    &_error {
+      color: var(--rose-default);
+    }
+  }
+
+  &input {
+    width: 423px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: var(--ash-default);
+    padding-left: 23px;
+    border: 2px solid var(--ash-default);
+
+    &_error {
+      background: var(--rose-lighter);
+      color: var(--rose-default);
+      border: 2px solid var(--rose-default);
+    }
+  }
+
+  &checkbox {
+    width: 18px;
+    height: 18px;
+    border-color: var(--ash-default);
+    display: none;
+
+    & + label {
+      width: 18px;
+      background: url("./Icons/checkboxOutline.svg") no-repeat center;
+    }
+
+    &:checked + label {
+      background: url("./Icons/checkbox.svg") no-repeat center;
+    }
+  }
+
+}
+
