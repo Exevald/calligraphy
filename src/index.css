@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 *,
 *::after,
@@ -20,6 +22,10 @@
     --electric-dar: #0038AC;
 
     --forest-defalut: #89C02E;
+
+    --misato-default: rgba(172, 135, 210, 1);
+    --misato-dark: rgba(130, 82, 180, 1);
+    --misato-60: rgba(172, 135, 210, 0.6);
 
     --text-header-large: 700 90px/126px "Inter", sans-serif;
     --text-header-normal: 700 60px/71px "Inter", sans-serif;
