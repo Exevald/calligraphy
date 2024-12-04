@@ -1,3 +1,7 @@
-type LetterStyle = 'solid' | 'dashed' | 'dotted' | 'traced' | 'outlined';
+enum LetterStyle {
+    'solid',
+    'dashed',
+    'dotted',
+}
 
-export type {LetterStyle}
+export {LetterStyle}

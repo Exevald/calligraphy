@@ -2,16 +2,36 @@ import React, {useState} from 'react';
 import HandwritingCanvas from '../../components/HandwritingCanvas/HandwritingCanvas';
 import {LetterStyle} from "../../../model/types";
 import TopPanel from "../../components/TopPanel/TopPanel";
-import "./Editor.scss"
+import "./Editor.scss";
 import InputArea from "../../components/InputArea/InputArea";
 
 const Editor = () => {
-    const [text, setText] = useState('Текст прописи');
-    const [style, setStyle] = useState<LetterStyle>('solid');
+    const [title, setTitle] = useState('Прописи');
+    const [text, setText] = useState('Текст прописей');
+    const [style, setStyle] = useState<LetterStyle>(LetterStyle.solid);
     const [lineSpacing, setLineSpacing] = useState(50);
 
+    const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(event.target.value);
+    };
+
     const handleStyleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setStyle(event.target.value as LetterStyle);
+        let style: LetterStyle;
+        switch (event.target.value) {
+            case 'solid': {
+                style = LetterStyle.solid
+                break;
+            }
+            case 'dashed': {
+                style = LetterStyle.dashed
+                break;
+            }
+            case 'dotted': {
+                style = LetterStyle.dotted;
+                break;
+            }
+        }
+        setStyle(style);
     };
 
     const handleLineSpacingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,21 +40,26 @@ const Editor = () => {
 
     const user = {
         imgUrl: ''
-    }
+    };
 
     return (
         <div>
             <TopPanel userData={user}/>
             <div className={"editor__settings-wrapper"}>
                 <div className={"editor__tool-bar"}>
-                    <InputArea id={"pageTitle"} type={"text"} header={"Название страницы"}/>
-                    <InputArea id={"pageInstructions"} type={"text"} header={"Инструкции для написания"}/>
-                    <div>
+                    <InputArea
+                        id={"pageTitle"}
+                        type={"text"}
+                        header={"Название страницы"}
+                        value={title}
+                        onChange={handleTitleChange}
+                    />
+                    <div className={"editor__word-style-settings"}>
                         <label>
                             <input
                                 type="radio"
                                 value="solid"
-                                checked={style === 'solid'}
+                                checked={style === LetterStyle.solid}
                                 onChange={handleStyleChange}
                             />
                             Сплошной
@@ -43,7 +68,7 @@ const Editor = () => {
                             <input
                                 type="radio"
                                 value="dashed"
-                                checked={style === 'dashed'}
+                                checked={style === LetterStyle.dashed}
                                 onChange={handleStyleChange}
                             />
                             Пунктир
@@ -52,7 +77,7 @@ const Editor = () => {
                             <input
                                 type="radio"
                                 value="dotted"
-                                checked={style === 'dotted'}
+                                checked={style === LetterStyle.dotted}
                                 onChange={handleStyleChange}
                             />
                             Точки
@@ -75,7 +100,7 @@ const Editor = () => {
                         placeholder="Введите текст"
                     />
                 </div>
-                <HandwritingCanvas text={text} style={style} lineSpacing={lineSpacing} title={"Handwriting Practice"}/>
+                <HandwritingCanvas text={text} style={style} lineSpacing={lineSpacing} title={title}/>
             </div>
         </div>
     );
