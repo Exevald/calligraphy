@@ -1,0 +1,6 @@
+.handwritingCanvas__ {
+  &canvas-wrapper {
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom, var(--ash-light) 0%, white 50%, transparent 100%) 1;
+  }
+}

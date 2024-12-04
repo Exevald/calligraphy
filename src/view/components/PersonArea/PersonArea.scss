@@ -1,0 +1,15 @@
+.personArea__ {
+    &wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        & > p {
+            margin-right: 13px;
+        }
+        cursor: pointer;
+    }
+    &photo {
+        width: 40px;
+        height: 40px;
+    }
+}

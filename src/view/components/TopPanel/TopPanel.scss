@@ -1,0 +1,23 @@
+.topPanel__ {
+  &wrapper {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid rgba(66, 72, 78, 0.12);
+    height: 64px;
+    padding-right: 24px;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  &logo {
+    background: url("./logo.svg") no-repeat center center;
+    height: 64px;
+    width: 149px;
+    z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

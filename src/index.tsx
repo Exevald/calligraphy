@@ -4,7 +4,7 @@ import './index.css'
 import {connectLogger, createCtx} from '@reatom/framework'
 import {reatomContext} from '@reatom/npm-react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import EditorPage from './view/pages/EditorPage/EditorPage'
+import Editor from './view/pages/Editor/Editor'
 
 
 const ctx = createCtx()
@@ -19,7 +19,7 @@ root.render(
 		<reatomContext.Provider value={ctx}>
 			<BrowserRouter>
 				<Routes>
-					<Route path={'/'} element={<EditorPage/>}></Route>
+					<Route path={'/'} element={<Editor/>}></Route>
 				</Routes>
 			</BrowserRouter>
 		</reatomContext.Provider>
