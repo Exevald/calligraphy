@@ -1,0 +1,52 @@
+run:
+  issues-exit-code: 1
+
+linters:
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - typecheck
+    - unused
+    - bodyclose
+    - importas
+    - dogsled
+    - dupl
+    - gochecknoinits
+    - gocognit
+    - gocritic
+    - gocyclo
+    - gofmt
+    - goimports
+    - revive
+    - gosec
+    - misspell
+    - nakedret
+    - prealloc
+    - exportloopref
+    - stylecheck
+    - unconvert
+    - whitespace
+    - rowserrcheck
+    - goconst
+    - asciicheck
+    - nestif
+    - exportloopref
+    - sqlclosecheck
+
+linters-settings:
+  goimports:
+    local-prefixes: brewkit
+  gocritic:
+    disabled-checks:
+      - sloppyReassign
+      - whyNoLint
+    enabled-tags:
+      - experimental
+      - opinionated
+  wrapcheck:
+    ignorePackageGlobs:
+      - brewkit/*

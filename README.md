@@ -1,4 +1,4 @@
-# calligraphy
+# Lexeme
 
 ***Description:*** Handwriting generation application
 

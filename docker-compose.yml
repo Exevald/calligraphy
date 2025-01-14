@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  lexeme-dev:
+    image: lexeme
+    container_name: lexeme-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8881:8081" # GRPC API port
+      - "8882:8082" # GRPC-Gateway REST API port
+    environment:
+      LEXEME_DB_HOST: lexeme-db-dev:3306
+      LEXEME_DB_NAME: lexeme
+      LEXEME_DB_USER: lexeme
+      LEXEME_DB_PASSWORD: LxilKD9Pbe
+      # Coupled with MySQL 'max_connections' option: must be 'max_connections - 5'
+      LEXEME_DB_MAX_CONN: 5
+    depends_on:
+      - lexeme-db-dev
+  lexeme-db-dev:
+    image: mysql:8.0.32
+    container_name: lexeme-db-dev
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: lexeme
+      MYSQL_USER: lexeme
+      MYSQL_PASSWORD: LxilKD9Pbe
+    volumes:
+      - "lexeme-db-dev-data:/var/lib/mysql"
+      - "${PWD}/data/mysql/config/:/etc/my.cnf.d"
+  client-dev:
+    image: client-dev
+    container_name: client-dev
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    ports:
+      - '3000:3000'
+
+
+volumes:
+  lexeme-db-dev-data:
