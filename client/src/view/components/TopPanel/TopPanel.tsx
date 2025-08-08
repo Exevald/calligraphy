@@ -8,7 +8,7 @@ interface TopPanelProps {
 const TopPanel = (props: TopPanelProps) => {
     return (
         <div className={"topPanel__wrapper"}>
-            <a className={"topPanel__logo"}></a>
+            <h1 style={{marginLeft: '20px'}}>Lexeme</h1>
             <PersonArea imgUrl={props.userData.imgUrl} />
         </div>
     )
